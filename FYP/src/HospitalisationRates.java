@@ -121,7 +121,7 @@ public class HospitalisationRates {
 		
 	}
 
-	public static int HospitalisationMaleAge66to81Use(int Age66to81Use) {
+	public static int HospitalisationMaleAge66to81(int Age66to81Use) {
 		int thisi = Age66to81Use/15;
 		double anotheri = 0;
 		double score = 0;
@@ -160,7 +160,7 @@ public class HospitalisationRates {
 	}
 
 
-	public static int HospitalisationMaleOver81(int Age81to100Use) {
+	public static int HospitalisationMale81to100(int Age81to100Use) {
 		int thisi = Age81to100Use/15;
 		double anotheri = 0;
 		double score = 0;

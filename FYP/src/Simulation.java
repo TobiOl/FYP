@@ -17,7 +17,18 @@ public class Simulation {
 	private double HospitalisedFemale50to65;
 	private double HospitalisedFemale66to81;
 	private double HospitalisedFemale81to100;
-	HospitalisationRates myHospitalObject = new HospitalisationRates();  
+	private double DeadMale18to29;
+	private double DeadMale34to49;
+	private double DeadMale50to65;
+	private double DeadMale66to81;
+	private double DeadMale81to100;
+	private double DeadFemale18to29;
+	private double DeadFemale34to49;
+	private double DeadFemale50to65;
+	private double DeadFemale66to81;
+	private double DeadFemale81to100;
+	HospitalisationRates myHospitalRatesObject = new HospitalisationRates(); 
+	DeathRates myDeathRatesObject = new DeathRates(); 
 	private float TotalInfected = 0;
 	
 public void WorkPls (int numbWardsUse, int numbBedsUse, int Age18to33Male, int Age34to49Male, int Age50to65Male, int Age66to81Male, int Age81to100Male, int age18to33FemaleUse, int age34to49FemaleUse, int age50to65FemaleUse, int age66to81FemaleUse, int age81to100FemaleUse) throws InterruptedException, IOException{
@@ -45,30 +56,36 @@ public void WorkPls (int numbWardsUse, int numbBedsUse, int Age18to33Male, int A
 	ageOver81percentage = (Age81to100Male/TotalInfected)*100;
 	
 	
+	/*
 	HospitalisedMale18to29 = HospitalisationRates.HospitalisationMale18to33(Age18to33Male);
 	
 	HospitalisedMale34to49 = HospitalisationRates.HospitalisationMaleAge34to49(Age34to49Male);
 	
 	HospitalisedMale50to65 = HospitalisationRates.HospitalisationMaleAge50to65(Age50to65Male);
 	
-	HospitalisedMale66to81 = HospitalisationRates.HospitalisationMaleAge66to81Use(Age66to81Male);
+	HospitalisedMale66to81 = HospitalisationRates.HospitalisationMaleAge66to81(Age66to81Male);
 	
-	HospitalisedMale81to100 = HospitalisationRates.HospitalisationMaleOver81(Age81to100Male);
+	HospitalisedMale81to100 = HospitalisationRates.HospitalisationMale81to100(Age81to100Male);
 	
-	HospitalisedFemale81to100 = HospitalisationRates.HospitalisationFemale81to100(age18to33FemaleUse);
+	HospitalisedFemale18to33 = HospitalisationRates.HospitalisationFemale81to100(age18to33FemaleUse);
 	
-	HospitalisedFemale81to100 = HospitalisationRates.HospitalisationFemaleAge34to49(age34to49FemaleUse);
+	HospitalisedFemale34to49 = HospitalisationRates.HospitalisationFemaleAge34to49(age34to49FemaleUse);
 	
-	HospitalisedFemale81to100 = HospitalisationRates.HospitalisationFemaleAge50to65(age50to65FemaleUse);
+	HospitalisedFemale50to65 = HospitalisationRates.HospitalisationFemaleAge50to65(age50to65FemaleUse);
 	
-	HospitalisedFemale81to100 = HospitalisationRates.HospitalisationFemaleAge66to81Use(age66to81FemaleUse);
+	HospitalisedFemale66to81 = HospitalisationRates.HospitalisationFemaleAge66to81(age66to81FemaleUse);
 	
 	HospitalisedFemale81to100 = HospitalisationRates.HospitalisationFemale81to100(age81to100FemaleUse);
+	*/
 	
-
-	
-
-
+	DeadMale18to29 = DeathRates.DeathMale18to33(Age18to33Male);
+	System.out.println(DeadMale18to29);
+	DeadFemale18to29 = DeathRates.DeathFemale18to33(age18to33FemaleUse);
+	System.out.println(DeadFemale18to29);
+	DeadMale81to100 = DeathRates.DeathMale81to100(Age81to100Male);
+	System.out.println(DeadMale81to100);
+	DeadFemale81to100 = DeathRates.DeathFemaleAge81to100(age81to100FemaleUse);
+	System.out.println(DeadFemale81to100);
 	
 	
 }
