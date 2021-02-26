@@ -20,13 +20,18 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 public class EntryScreen extends Composite {
 	private Text NumbWards;
 	private Text NumbBeds;
-	private Text Age18to29;
-	private Text Age30to45;
-	private Text Age46to60;
-	private Text Age61to75;
-	private Text AgeOver75;
+	private Text Age18to33Male;
+	private Text Age34to49Male;
+	private Text Age50to65Male;
+	private Text Age66to81Male;
+	private Text Age81to100Male;
 	private final FormToolkit formToolkit = new FormToolkit(Display.getDefault());
 	Simulation mySimulationObject = new Simulation();  
+	private Text Age18to33Female;
+	private Text Age34to49Female;
+	private Text Age50to65Female;
+	private Text Age66to81Female;
+	private Text Age81to100Female;
 	
 	
 	public static void main(String[] args) {
@@ -52,7 +57,9 @@ public class EntryScreen extends Composite {
 	 */
 	public EntryScreen(Composite parent, int style) {
 		super(parent, style);
-		setLayout(new GridLayout(3, false));
+		GridLayout gridLayout = new GridLayout(5, false);
+		gridLayout.horizontalSpacing = 7;
+		setLayout(gridLayout);
 		new Label(this, SWT.NONE);
 		new Label(this, SWT.NONE);
 		
@@ -66,14 +73,22 @@ public class EntryScreen extends Composite {
 		new Label(this, SWT.NONE);
 		new Label(this, SWT.NONE);
 		new Label(this, SWT.NONE);
+		new Label(this, SWT.NONE);
+		new Label(this, SWT.NONE);
+		new Label(this, SWT.NONE);
+		new Label(this, SWT.NONE);
+		new Label(this, SWT.NONE);
+		new Label(this, SWT.NONE);
 		
 		Label lblNumberOfWards = new Label(this, SWT.NONE);
-		lblNumberOfWards.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		lblNumberOfWards.setText("Number of wards");
 		new Label(this, SWT.NONE);
 		
 		NumbWards = new Text(this, SWT.BORDER);
-		NumbWards.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1));
+		new Label(this, SWT.NONE);
+		new Label(this, SWT.NONE);
+		new Label(this, SWT.NONE);
+		new Label(this, SWT.NONE);
 		new Label(this, SWT.NONE);
 		new Label(this, SWT.NONE);
 		new Label(this, SWT.NONE);
@@ -84,7 +99,10 @@ public class EntryScreen extends Composite {
 		new Label(this, SWT.NONE);
 		
 		NumbBeds = new Text(this, SWT.BORDER);
-		NumbBeds.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1));
+		new Label(this, SWT.NONE);
+		new Label(this, SWT.NONE);
+		new Label(this, SWT.NONE);
+		new Label(this, SWT.NONE);
 		new Label(this, SWT.NONE);
 		new Label(this, SWT.NONE);
 		new Label(this, SWT.NONE);
@@ -93,41 +111,86 @@ public class EntryScreen extends Composite {
 		
 		Label lblAgeGroupsOf = new Label(this, SWT.NONE);
 		lblAgeGroupsOf.setText("Age Groups of borough (average)");
+		new Label(this, SWT.NONE);
+		new Label(this, SWT.NONE);
 		
 		Label lblNewLabel = new Label(this, SWT.NONE);
-		lblNewLabel.setText("18-29");
+		lblNewLabel.setText("18-33 Male");
 		new Label(this, SWT.NONE);
 		
-		Age18to29 = new Text(this, SWT.BORDER);
-		Age18to29.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1));
+		Age18to33Male = new Text(this, SWT.BORDER);
 		
-		Label label = new Label(this, SWT.NONE);
-		label.setText("30-45");
+		Label lblNewLabel_1 = new Label(this, SWT.NONE);
+		formToolkit.adapt(lblNewLabel_1, true, true);
+		lblNewLabel_1.setText("18-33 Female");
+		
+		Age18to33Female = new Text(this, SWT.BORDER);
+		GridData gd_Age18to33Female = new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1);
+		gd_Age18to33Female.widthHint = 62;
+		Age18to33Female.setLayoutData(gd_Age18to33Female);
+		formToolkit.adapt(Age18to33Female, true, true);
+		
+		Label lblMale = new Label(this, SWT.NONE);
+		lblMale.setText("34-49 Male");
 		new Label(this, SWT.NONE);
 		
-		Age30to45 = new Text(this, SWT.BORDER);
-		Age30to45.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1));
+		Age34to49Male = new Text(this, SWT.BORDER);
 		
-		Label label_1 = new Label(this, SWT.NONE);
-		label_1.setText("46-60");
+		Label lblNewLabel_2 = new Label(this, SWT.NONE);
+		formToolkit.adapt(lblNewLabel_2, true, true);
+		lblNewLabel_2.setText("34-49 Female");
+		
+		Age34to49Female = new Text(this, SWT.BORDER);
+		GridData gd_Age34to49Female = new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1);
+		gd_Age34to49Female.widthHint = 60;
+		Age34to49Female.setLayoutData(gd_Age34to49Female);
+		formToolkit.adapt(Age34to49Female, true, true);
+		
+		Label lblMale_1 = new Label(this, SWT.NONE);
+		lblMale_1.setText("50-65 Male");
 		new Label(this, SWT.NONE);
 		
-		Age46to60 = new Text(this, SWT.BORDER);
-		Age46to60.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1));
+		Age50to65Male = new Text(this, SWT.BORDER);
 		
-		Label label_2 = new Label(this, SWT.NONE);
-		label_2.setText("61-75");
+		Label lblNewLabel_3 = new Label(this, SWT.NONE);
+		formToolkit.adapt(lblNewLabel_3, true, true);
+		lblNewLabel_3.setText("50-65 Female");
+		
+		Age50to65Female = new Text(this, SWT.BORDER);
+		GridData gd_Age50to65Female = new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1);
+		gd_Age50to65Female.widthHint = 62;
+		Age50to65Female.setLayoutData(gd_Age50to65Female);
+		formToolkit.adapt(Age50to65Female, true, true);
+		
+		Label lblMale_2 = new Label(this, SWT.NONE);
+		lblMale_2.setText("66-81 Male");
 		new Label(this, SWT.NONE);
 		
-		Age61to75 = new Text(this, SWT.BORDER);
-		Age61to75.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1));
+		Age66to81Male = new Text(this, SWT.BORDER);
 		
-		Label label_3 = new Label(this, SWT.NONE);
-		label_3.setText("75+");
+		Label lblNewLabel_4 = new Label(this, SWT.NONE);
+		formToolkit.adapt(lblNewLabel_4, true, true);
+		lblNewLabel_4.setText("66-81 Female");
+		
+		Age66to81Female = new Text(this, SWT.BORDER);
+		Age66to81Female.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1));
+		formToolkit.adapt(Age66to81Female, true, true);
+		
+		Label lblMale_3 = new Label(this, SWT.NONE);
+		lblMale_3.setText("81-100 Male");
 		new Label(this, SWT.NONE);
 		
-		AgeOver75 = new Text(this, SWT.BORDER);
-		AgeOver75.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1));
+		Age81to100Male = new Text(this, SWT.BORDER);
+		
+		Label lblNewLabel_5 = new Label(this, SWT.NONE);
+		formToolkit.adapt(lblNewLabel_5, true, true);
+		lblNewLabel_5.setText("81-100 Female");
+		
+		Age81to100Female = new Text(this, SWT.BORDER);
+		Age81to100Female.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1));
+		formToolkit.adapt(Age81to100Female, true, true);
+		new Label(this, SWT.NONE);
+		new Label(this, SWT.NONE);
 		new Label(this, SWT.NONE);
 		new Label(this, SWT.NONE);
 		new Label(this, SWT.NONE);
@@ -138,22 +201,35 @@ public class EntryScreen extends Composite {
 		btnRunSimulation.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
+				//Coverts the user input into usable values for the Simulation class
 				int NumbWardsUse = Integer.parseInt(NumbWards.getText());
 				int NumbBedsUse = Integer.parseInt(NumbBeds.getText());
-				int Age18to33Use = Integer.parseInt(Age18to29.getText());
-				int Age34to49Use = Integer.parseInt(Age30to45.getText());
-				int Age50to65Use = Integer.parseInt(Age46to60.getText());
-				int Age66to81Use = Integer.parseInt(Age61to75.getText());
-				int AgeOver81Use = Integer.parseInt(AgeOver75.getText());
+				int Age18to33MaleUse = Integer.parseInt(Age18to33Male.getText());
+				int Age34to49MaleUse = Integer.parseInt(Age34to49Male.getText());
+				int Age50to65MaleUse = Integer.parseInt(Age50to65Male.getText());
+				int Age66to81MaleUse = Integer.parseInt(Age66to81Male.getText());
+				int Age81to100MaleUse = Integer.parseInt(Age81to100Male.getText());
+				int Age18to33FemaleUse = Integer.parseInt(Age18to33Male.getText());
+				int Age34to49FemaleUse = Integer.parseInt(Age34to49Male.getText());
+				int Age50to65FemaleUse = Integer.parseInt(Age50to65Male.getText());
+				int Age66to81FemaleUse = Integer.parseInt(Age66to81Male.getText());
+				int Age81to100FemaleUse = Integer.parseInt(Age81to100Male.getText());
 				
 				try {
+					//loads into the simulation class on button click
 					mySimulationObject.WorkPls(NumbWardsUse,
 							NumbBedsUse,
-							Age18to33Use,
-							Age34to49Use,
-							Age50to65Use,
-							Age66to81Use,
-							AgeOver81Use);
+							Age18to33MaleUse,
+							Age34to49MaleUse,
+							Age50to65MaleUse,
+							Age66to81MaleUse,
+							Age81to100MaleUse,
+							Age18to33FemaleUse,
+							Age34to49FemaleUse,
+							Age50to65FemaleUse,
+							Age66to81FemaleUse,
+							Age81to100FemaleUse
+							);
 				} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -167,6 +243,8 @@ public class EntryScreen extends Composite {
 			}
 		});
 		btnRunSimulation.setText("Run Simulation");
+		new Label(this, SWT.NONE);
+		new Label(this, SWT.NONE);
 
 	}
 
