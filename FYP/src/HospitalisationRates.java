@@ -249,7 +249,7 @@ public class HospitalisationRates {
 		double age_2 = 0;
 		int results = 0;
 		double a = 0;
-		for (int i = 18; i < 33; i++) {
+		for (int i = 34; i < 49; i++) {
 			
 			
 			dage = i;
@@ -288,7 +288,7 @@ public class HospitalisationRates {
 		double age_2 = 0;
 		int results = 0;
 		double a = 0;
-		for (int i = 18; i < 33; i++) {
+		for (int i = 50; i < 65; i++) {
 			
 			
 			dage = i;
@@ -318,7 +318,7 @@ public class HospitalisationRates {
 		
 	}
 	
-	public static int HospitalisationFemaleAge66to81Use(int age66to81FemaleUse) {
+	public static int HospitalisationFemaleAge66to81(int age66to81FemaleUse) {
 		int thisi = age66to81FemaleUse/15;
 		double anotheri = 0;
 		double score = 0;
@@ -327,7 +327,7 @@ public class HospitalisationRates {
 		double age_2 = 0;
 		int results = 0;
 		double a = 0;
-		for (int i = 18; i < 33; i++) {
+		for (int i = 66; i < 81; i++) {
 			
 			
 			dage = i;
@@ -366,7 +366,7 @@ public class HospitalisationRates {
 		double age_2 = 0;
 		int results = 0;
 		double a = 0;
-		for (int i = 18; i < 33; i++) {
+		for (int i = 81; i < 100; i++) {
 			
 			
 			dage = i;
