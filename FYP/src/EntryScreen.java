@@ -216,6 +216,9 @@ public class EntryScreen extends Composite {
 				int Age81to100FemaleUse = Integer.parseInt(Age81to100Male.getText());
 				
 				try {
+					
+					Output outputscreen = new Output();
+					outputscreen.setVisible(true);
 					//loads into the simulation class on button click
 					mySimulationObject.WorkPls(NumbWardsUse,
 							NumbBedsUse,
@@ -230,6 +233,8 @@ public class EntryScreen extends Composite {
 							Age66to81FemaleUse,
 							Age81to100FemaleUse
 							);
+					
+					
 				} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

@@ -79,13 +79,29 @@ public void WorkPls (int numbWardsUse, int numbBedsUse, int Age18to33Male, int A
 	*/
 	
 	DeadMale18to29 = DeathRates.DeathMale18to33(Age18to33Male);
-	System.out.println(DeadMale18to29);
+	System.out.println("Out of " + Age18to33Male + "The amount of Males aged 18 to 29 that will die over 3 months are " + DeadMale18to29);
 	DeadFemale18to29 = DeathRates.DeathFemale18to33(age18to33FemaleUse);
-	System.out.println(DeadFemale18to29);
+	System.out.println("Out of " + age18to33FemaleUse + "The amount of Females aged 18 to 29 that will die over 3 months are " + DeadFemale18to29);
+	
+	DeadMale34to49 = DeathRates.DeathMale18to33(Age18to33Male);
+	System.out.println("The amount of Males aged 18 to 29 that will die over 3 months are " + DeadMale18to29);
+	DeadFemale18to29 = DeathRates.DeathFemale18to33(age18to33FemaleUse);
+	System.out.println("The amount of Females aged 18 to 29 that will die over 3 months are " + DeadFemale18to29);
+
+	DeadMale50to65 = DeathRates.DeathMale18to33(Age18to33Male);
+	System.out.println("The amount of Males aged 18 to 29 that will die over 3 months are " + DeadMale18to29);
+	DeadFemale18to29 = DeathRates.DeathFemale18to33(age18to33FemaleUse);
+	System.out.println("The amount of Females aged 18 to 29 that will die over 3 months are " + DeadFemale18to29);
+
+	DeadMale66to81 = DeathRates.DeathMale18to33(Age18to33Male);
+	System.out.println("The amount of Males aged 18 to 29 that will die over 3 months are " + DeadMale18to29);
+	DeadFemale18to29 = DeathRates.DeathFemale18to33(age18to33FemaleUse);
+	System.out.println("The amount of Females aged 18 to 29 that will die over 3 months are " + DeadFemale18to29);
+	
 	DeadMale81to100 = DeathRates.DeathMale81to100(Age81to100Male);
-	System.out.println(DeadMale81to100);
+	System.out.println("Out of " + Age81to100Male + "The amount of Males aged 81 to 100 that will die over 3 months are " + DeadMale81to100);
 	DeadFemale81to100 = DeathRates.DeathFemaleAge81to100(age81to100FemaleUse);
-	System.out.println(DeadFemale81to100);
+	System.out.println("Out of " + age81to100FemaleUse + "The amount of Females aged 18 to 29 that will die over 3 months are " + DeadFemale81to100);
 	
 	
 }
