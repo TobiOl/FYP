@@ -13,6 +13,9 @@ import javax.swing.SwingUtilities;
 
 import java.awt.GridLayout;
 import java.awt.Button;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class Output extends JFrame {
@@ -29,7 +32,7 @@ public class Output extends JFrame {
 		 
 	
 	public Output() {
-		super("Testing the output..");
+		super("Hospitalisation and Death results");
 		
 		textArea = new JTextArea(50, 10);
 		textArea.setEditable(false);
@@ -45,7 +48,7 @@ public class Output extends JFrame {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 591, 377);
+		setBounds(100, 100, 616, 479);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);

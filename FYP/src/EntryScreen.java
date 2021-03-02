@@ -219,6 +219,9 @@ public class EntryScreen extends Composite {
 					
 					Output outputscreen = new Output();
 					outputscreen.setVisible(true);
+					
+					ResultVisualisation graphscreen = new ResultVisualisation(getToolTipText());
+					graphscreen.setVisible(true);
 					//loads into the simulation class on button click
 					mySimulationObject.WorkPls(NumbWardsUse,
 							NumbBedsUse,
