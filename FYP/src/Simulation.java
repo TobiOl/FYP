@@ -28,7 +28,9 @@ public class Simulation {
 	private double DeadFemale50to65;
 	private double DeadFemale66to81;
 	private double DeadFemale81to100;
+	private String OverFlowWeek;
 	HospitalisationRates myHospitalRatesObject = new HospitalisationRates(); 
+	Wards myWardsCalculationObject = new Wards(); 
 	DeathRates myDeathRatesObject = new DeathRates(); 
 	private float TotalInfected = 0;
 	
@@ -115,12 +117,22 @@ public void WorkPls (int numbWardsUse, int numbBedsUse, int Age18to33Male, int A
 	System.out.println("Out of " + Age81to100Male + " Males, The amount of Males aged 81 to 100 that will die over 3 months are " + DeadMale81to100);
 	DeadFemale81to100 = DeathRates.DeathFemaleAge81to100(age81to100FemaleUse);
 	System.out.println("Out of " + age81to100FemaleUse + " Females, The amount of Females aged 18 to 29 that will die over 3 months are " + DeadFemale81to100);
+
 	
 	TotalHospitalised = (HospitalisedMale18to29 + HospitalisedMale34to49+ HospitalisedMale50to65+ HospitalisedMale66to81+
 			HospitalisedMale81to100+ HospitalisedFemale18to33+HospitalisedFemale34to49+HospitalisedFemale50to65+
 			HospitalisedFemale66to81+HospitalisedFemale81to100);
 	ResultVisualisation graphscreen = new ResultVisualisation(line);
 	graphscreen.setVisible(true);
+	
+	System.out.println("");
+	System.out.println("Wards Calculation over 3 months");
+	System.out.println("");
+	
+	OverFlowWeek = Wards.WardsCalculation(numbWardsUse, numbBedsUse);
+	System.out.println(OverFlowWeek);
+	
+	
 	
 }
 

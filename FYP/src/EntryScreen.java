@@ -7,6 +7,8 @@ import org.eclipse.swt.widgets.Shell;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import javax.swing.JOptionPane;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.layout.GridData;
@@ -217,24 +219,35 @@ public class EntryScreen extends Composite {
 				
 				try {
 					
-					Output outputscreen = new Output();
-					outputscreen.setVisible(true);
+					if (NumbWardsUse < 1 ||  NumbBedsUse < 1) {
+						JOptionPane.showMessageDialog(null, "Wards values must be more than 0!");
+					}
+					else if (Age18to33MaleUse<0||Age34to49MaleUse<0||Age50to65MaleUse<0||Age66to81MaleUse<0||Age81to100MaleUse<0||Age18to33FemaleUse<0||Age34to49FemaleUse<0||
+							Age50to65FemaleUse<0||Age66to81FemaleUse<0||Age81to100FemaleUse<0) {
+						JOptionPane.showMessageDialog(null, "Age population values must be 0 or above at least!");
+					}
+					else {
+
+						Output outputscreen = new Output();
+						outputscreen.setVisible(true);
+						
+						
+						//loads into the simulation class on button click
+						mySimulationObject.WorkPls(NumbWardsUse,
+								NumbBedsUse,
+								Age18to33MaleUse,
+								Age34to49MaleUse,
+								Age50to65MaleUse,
+								Age66to81MaleUse,
+								Age81to100MaleUse,
+								Age18to33FemaleUse,
+								Age34to49FemaleUse,
+								Age50to65FemaleUse,
+								Age66to81FemaleUse,
+								Age81to100FemaleUse
+								);
+					}
 					
-					
-					//loads into the simulation class on button click
-					mySimulationObject.WorkPls(NumbWardsUse,
-							NumbBedsUse,
-							Age18to33MaleUse,
-							Age34to49MaleUse,
-							Age50to65MaleUse,
-							Age66to81MaleUse,
-							Age81to100MaleUse,
-							Age18to33FemaleUse,
-							Age34to49FemaleUse,
-							Age50to65FemaleUse,
-							Age66to81FemaleUse,
-							Age81to100FemaleUse
-							);
 					
 					
 				} catch (InterruptedException e1) {

@@ -14,18 +14,18 @@ public class ResultVisualisation extends JFrame{
 	//code gotten from https://www.javatpoint.com/jfreechart-bar-chart
 	  private static final long serialVersionUID = 1L;  
 	  
-	  private int Week1;
-	  private int Week2;
-	  private int Week3;
-	  private int Week4;
-	  private int Week5;
-	  private int Week6;
-	  private int Week7;
-	  private int Week8;
-	  private int Week9;
-	  private int Week10;
-	  private int Week11;
-	  private int Week12;
+	  public static int Week1;
+	  public static int Week2;
+	  public static int Week3;
+	  public static int Week4;
+	  public static int Week5;
+	  public static int Week6;
+	  public static int Week7;
+	  public static int Week8;
+	  public static int Week9;
+	  public static int Week10;
+	  public static int Week11;
+	  public static int Week12;
 	  
 	  
 	  public ResultVisualisation(String apptitle) {
