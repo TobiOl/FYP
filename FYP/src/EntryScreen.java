@@ -34,6 +34,7 @@ public class EntryScreen extends Composite {
 	private Text Age50to65Female;
 	private Text Age66to81Female;
 	private Text Age81to100Female;
+	private boolean TextFieldCheck;
 	
 	
 	public static void main(String[] args) {
@@ -57,6 +58,7 @@ public class EntryScreen extends Composite {
 	 * @param parent
 	 * @param style
 	 */
+	//GUI is created
 	public EntryScreen(Composite parent, int style) {
 		super(parent, style);
 		GridLayout gridLayout = new GridLayout(5, false);
@@ -203,64 +205,79 @@ public class EntryScreen extends Composite {
 		btnRunSimulation.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				//Coverts the user input into usable values for the Simulation class
-				int NumbWardsUse = Integer.parseInt(NumbWards.getText());
-				int NumbBedsUse = Integer.parseInt(NumbBeds.getText());
-				int Age18to33MaleUse = Integer.parseInt(Age18to33Male.getText());
-				int Age34to49MaleUse = Integer.parseInt(Age34to49Male.getText());
-				int Age50to65MaleUse = Integer.parseInt(Age50to65Male.getText());
-				int Age66to81MaleUse = Integer.parseInt(Age66to81Male.getText());
-				int Age81to100MaleUse = Integer.parseInt(Age81to100Male.getText());
-				int Age18to33FemaleUse = Integer.parseInt(Age18to33Male.getText());
-				int Age34to49FemaleUse = Integer.parseInt(Age34to49Male.getText());
-				int Age50to65FemaleUse = Integer.parseInt(Age50to65Male.getText());
-				int Age66to81FemaleUse = Integer.parseInt(Age66to81Male.getText());
-				int Age81to100FemaleUse = Integer.parseInt(Age81to100Male.getText());
 				
-				try {
-					
-					if (NumbWardsUse < 1 ||  NumbBedsUse < 1) {
-						JOptionPane.showMessageDialog(null, "Wards values must be more than 0!");
-					}
-					else if (Age18to33MaleUse<0||Age34to49MaleUse<0||Age50to65MaleUse<0||Age66to81MaleUse<0||Age81to100MaleUse<0||Age18to33FemaleUse<0||Age34to49FemaleUse<0||
-							Age50to65FemaleUse<0||Age66to81FemaleUse<0||Age81to100FemaleUse<0) {
-						JOptionPane.showMessageDialog(null, "Age population values must be 0 or above at least!");
-					}
-					else {
-
-						Output outputscreen = new Output();
-						outputscreen.setVisible(true);
-						
-						
-						//loads into the simulation class on button click
-						mySimulationObject.WorkPls(NumbWardsUse,
-								NumbBedsUse,
-								Age18to33MaleUse,
-								Age34to49MaleUse,
-								Age50to65MaleUse,
-								Age66to81MaleUse,
-								Age81to100MaleUse,
-								Age18to33FemaleUse,
-								Age34to49FemaleUse,
-								Age50to65FemaleUse,
-								Age66to81FemaleUse,
-								Age81to100FemaleUse
-								);
-					}
+				//if any of the fields are blank, its gives an error message
+				if (NumbWards.getText().isEmpty()||NumbBeds.getText().isEmpty()||Age18to33Male.getText().isEmpty()||Age34to49Male.getText().isEmpty()||Age50to65Male.getText().isEmpty()||Age66to81Male.getText().isEmpty()
+						||Age81to100Male.getText().isEmpty()||Age18to33Female.getText().isEmpty()||Age34to49Female.getText().isEmpty()||Age50to65Female.getText().isEmpty()
+						||Age66to81Female.getText().isEmpty()||Age81to100Female.getText().isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Every field must have a value in it!");
 					
 					
-					
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (FileNotFoundException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
 				}
-			}
+				else {
+					//Coverts the user input into usable values for the Simulation class
+					int NumbWardsUse = Integer.parseInt(NumbWards.getText());
+					int NumbBedsUse = Integer.parseInt(NumbBeds.getText());
+					int Age18to33MaleUse = Integer.parseInt(Age18to33Male.getText());
+					int Age34to49MaleUse = Integer.parseInt(Age34to49Male.getText());
+					int Age50to65MaleUse = Integer.parseInt(Age50to65Male.getText());
+					int Age66to81MaleUse = Integer.parseInt(Age66to81Male.getText());
+					int Age81to100MaleUse = Integer.parseInt(Age81to100Male.getText());
+					int Age18to33FemaleUse = Integer.parseInt(Age18to33Female.getText());
+					int Age34to49FemaleUse = Integer.parseInt(Age34to49Female.getText());
+					int Age50to65FemaleUse = Integer.parseInt(Age50to65Female.getText());
+					int Age66to81FemaleUse = Integer.parseInt(Age66to81Female.getText());
+					int Age81to100FemaleUse = Integer.parseInt(Age81to100Female.getText());
+					
+					try {
+						//If either of the Wards values entered are below 1, they are considered invalid and an error message will pop up
+						if (NumbWardsUse < 1 ||  NumbBedsUse < 1) {
+							JOptionPane.showMessageDialog(null, "Wards values must be more than 0!");
+						}
+						//If any of the age population values entered are below 0, they are considered invalid and an error message will pop up
+						else if (Age18to33MaleUse<0||Age34to49MaleUse<0||Age50to65MaleUse<0||Age66to81MaleUse<0||Age81to100MaleUse<0||Age18to33FemaleUse<0||Age34to49FemaleUse<0||
+								Age50to65FemaleUse<0||Age66to81FemaleUse<0||Age81to100FemaleUse<0) {
+							JOptionPane.showMessageDialog(null, "Age population values must be 0 or above at least!");
+						}
+						
+						
+						else {
+							//loads the Output screen to be populated
+							Output outputscreen = new Output();
+							outputscreen.setVisible(true);
+							
+							
+							//loads into the simulation class on button click
+							mySimulationObject.SimulationResults(NumbWardsUse,
+									NumbBedsUse,
+									Age18to33MaleUse,
+									Age34to49MaleUse,
+									Age50to65MaleUse,
+									Age66to81MaleUse,
+									Age81to100MaleUse,
+									Age18to33FemaleUse,
+									Age34to49FemaleUse,
+									Age50to65FemaleUse,
+									Age66to81FemaleUse,
+									Age81to100FemaleUse
+									);
+						}
+						
+						
+						
+					} catch (InterruptedException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (FileNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+				}
+		
 		});
 		btnRunSimulation.setText("Run Simulation");
 		new Label(this, SWT.NONE);

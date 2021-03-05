@@ -1,6 +1,11 @@
 
 public class DeathRates {
-	
+	//These functions will take in the estimate number of people in their specific age group and then
+	//divide the number by 15 so there is an even number per age in the group. It will run a for loop
+	//That carries out the QCovid algorithm focusing on age and gender, multiply them by the number of people in age group
+	// to get the number that will die and put these all together
+	//in the returned value
+	//Algorithm source: https://qcovid.org/Home/Algorithm
 	public static int DeathFemale18to33(int age18to33FemaleUse) {
 		int thisi = age18to33FemaleUse/15;
 		double anotheri = 0;

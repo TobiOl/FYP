@@ -2,11 +2,7 @@ import org.eclipse.swt.widgets.Text;
 import java.io.*;  
 import java.util.*;
 public class Simulation {
-	private float age18to33percentage;
-	private float age34to49percentage;
-	private float age50to65percentage;
-	private float age66to81percentage;
-	private float ageOver81percentage;
+	//These variables are created to store the returned results from the HospitalisationRates class
 	private double HospitalisedMale18to29;
 	private double HospitalisedMale34to49;
 	private double HospitalisedMale50to65;
@@ -17,7 +13,9 @@ public class Simulation {
 	private double HospitalisedFemale50to65;
 	private double HospitalisedFemale66to81;
 	private double HospitalisedFemale81to100;
+	//This variable is to store the total number of people hospitalised and made public for the ResultVisualisation class to have access
 	public static double TotalHospitalised;
+	//These variables are created to store the returned results from the DeathRates class
 	private double DeadMale18to29;
 	private double DeadMale34to49;
 	private double DeadMale50to65;
@@ -28,37 +26,20 @@ public class Simulation {
 	private double DeadFemale50to65;
 	private double DeadFemale66to81;
 	private double DeadFemale81to100;
+	//Used to store the Wards class results.
 	private String OverFlowWeek;
+	//Creating objects for the HospitalisationRates, Wards and DeathRates classes to be called so their functions can be used
 	HospitalisationRates myHospitalRatesObject = new HospitalisationRates(); 
 	Wards myWardsCalculationObject = new Wards(); 
 	DeathRates myDeathRatesObject = new DeathRates(); 
-	private float TotalInfected = 0;
-	
-public void WorkPls (int numbWardsUse, int numbBedsUse, int Age18to33Male, int Age34to49Male, int Age50to65Male, int Age66to81Male, int Age81to100Male, int age18to33FemaleUse, int age34to49FemaleUse, int age50to65FemaleUse, int age66to81FemaleUse, int age81to100FemaleUse) throws InterruptedException, IOException{
-	//reads in infections per day in a CSV file and saves to a file
-	String csvFile="C:\\Users\\Tobi\\Desktop\\School\\Year 3\\FYP\\Model\\InfectionsPerDay.csv";
-	String csvSplitBy=",";
+	//This variable is the line used for the name of the screen created in the ResultVisualisation class
+	private String line = "Hospitalisation Bar Chart";
 
+	//reads in the user input from the EntryScreen class for use across the above mentioned classes
+public void SimulationResults (int numbWardsUse, int numbBedsUse, int Age18to33Male, int Age34to49Male, int Age50to65Male, int Age66to81Male, int Age81to100Male, int age18to33FemaleUse, int age34to49FemaleUse, int age50to65FemaleUse, int age66to81FemaleUse, int age81to100FemaleUse) throws InterruptedException, IOException{
 	
-	
-	String line = "";
-	ArrayList<Integer> Infected = new ArrayList<>();
-	Scanner scnr = new Scanner(new File(csvFile));
-	
-	
-	while (scnr.hasNext()) {
-		Infected.add(scnr.nextInt());
-		TotalInfected = TotalInfected + scnr.nextInt();
-		
-	}
-	
-	age18to33percentage = (Age18to33Male/TotalInfected)*100;
-	age34to49percentage = (Age34to49Male/TotalInfected)*100;
-	age50to65percentage = (Age50to65Male/TotalInfected)*100;
-	age66to81percentage = (Age66to81Male/TotalInfected)*100;
-	ageOver81percentage = (Age81to100Male/TotalInfected)*100;
-	
-	
+	//For all the lines under Hospitalisation, it will go into the HospitalisationRates class, select the created function for that specific age group and then
+	//print out the returned result with a line explaining the results. It will do this for all the age groups and genders passed in above
 	System.out.println("HOSPITALISATION PER GENDER AND AGE (3 MONTHS)");
 	System.out.println("");
 	HospitalisedMale18to29 = HospitalisationRates.HospitalisationMale18to33(Age18to33Male);
@@ -92,7 +73,9 @@ public void WorkPls (int numbWardsUse, int numbBedsUse, int Age18to33Male, int A
 	System.out.println("DEATH PER GENDER AND AGE (3 MONTHS)");
 	System.out.println("");
 	
-	
+	//For all the lines under Death, it will go into the DeathRates class, select the created function for that specific age group and then
+	//print out the returned result with a line explaining the results. It will do this for all the age groups and genders passed in above
+
 	DeadMale18to29 = DeathRates.DeathMale18to33(Age18to33Male);
 	System.out.println("Out of " + Age18to33Male + " Males, The amount of Males aged 18 to 29 that will die over 3 months are " + DeadMale18to29);
 	DeadFemale18to29 = DeathRates.DeathFemale18to33(age18to33FemaleUse);
@@ -118,17 +101,18 @@ public void WorkPls (int numbWardsUse, int numbBedsUse, int Age18to33Male, int A
 	DeadFemale81to100 = DeathRates.DeathFemaleAge81to100(age81to100FemaleUse);
 	System.out.println("Out of " + age81to100FemaleUse + " Females, The amount of Females aged 18 to 29 that will die over 3 months are " + DeadFemale81to100);
 
-	
+	//adds up up all the hospitalisation numbers to be used in the ResultVisualisation class
 	TotalHospitalised = (HospitalisedMale18to29 + HospitalisedMale34to49+ HospitalisedMale50to65+ HospitalisedMale66to81+
 			HospitalisedMale81to100+ HospitalisedFemale18to33+HospitalisedFemale34to49+HospitalisedFemale50to65+
 			HospitalisedFemale66to81+HospitalisedFemale81to100);
+	//Runs the ResultsVisualisation screen, passes in the window title created above
 	ResultVisualisation graphscreen = new ResultVisualisation(line);
 	graphscreen.setVisible(true);
 	
 	System.out.println("");
 	System.out.println("Wards Calculation over 3 months");
 	System.out.println("");
-	
+	//Runs the WardsCalculation function in the Wards class while passing in the Wards data passed in above then prints out the results
 	OverFlowWeek = Wards.WardsCalculation(numbWardsUse, numbBedsUse);
 	System.out.println(OverFlowWeek);
 	
