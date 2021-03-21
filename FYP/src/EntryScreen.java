@@ -34,7 +34,7 @@ public class EntryScreen extends Composite {
 	private Text Age50to65Female;
 	private Text Age66to81Female;
 	private Text Age81to100Female;
-	private boolean TextFieldCheck;
+	
 	
 	
 	public static void main(String[] args) {
@@ -207,7 +207,8 @@ public class EntryScreen extends Composite {
 			public void widgetSelected(SelectionEvent e) {
 				
 				//if any of the fields are blank, its gives an error message
-				if (NumbWards.getText().isEmpty()||NumbBeds.getText().isEmpty()||Age18to33Male.getText().isEmpty()||Age34to49Male.getText().isEmpty()||Age50to65Male.getText().isEmpty()||Age66to81Male.getText().isEmpty()
+				if (NumbWards.getText().isEmpty()||NumbBeds.getText().isEmpty()||Age18to33Male.getText().isEmpty()||Age34to49Male.getText().isEmpty()||
+						Age50to65Male.getText().isEmpty()||Age66to81Male.getText().isEmpty()
 						||Age81to100Male.getText().isEmpty()||Age18to33Female.getText().isEmpty()||Age34to49Female.getText().isEmpty()||Age50to65Female.getText().isEmpty()
 						||Age66to81Female.getText().isEmpty()||Age81to100Female.getText().isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Every field must have a value in it!");
@@ -235,7 +236,8 @@ public class EntryScreen extends Composite {
 							JOptionPane.showMessageDialog(null, "Wards values must be more than 0!");
 						}
 						//If any of the age population values entered are below 0, they are considered invalid and an error message will pop up
-						else if (Age18to33MaleUse<0||Age34to49MaleUse<0||Age50to65MaleUse<0||Age66to81MaleUse<0||Age81to100MaleUse<0||Age18to33FemaleUse<0||Age34to49FemaleUse<0||
+						else if (Age18to33MaleUse<0||Age34to49MaleUse<0||Age50to65MaleUse<0||Age66to81MaleUse<0||
+								Age81to100MaleUse<0||Age18to33FemaleUse<0||Age34to49FemaleUse<0||
 								Age50to65FemaleUse<0||Age66to81FemaleUse<0||Age81to100FemaleUse<0) {
 							JOptionPane.showMessageDialog(null, "Age population values must be 0 or above at least!");
 						}
@@ -245,6 +247,7 @@ public class EntryScreen extends Composite {
 							//loads the Output screen to be populated
 							Output outputscreen = new Output();
 							outputscreen.setVisible(true);
+							
 							
 							
 							//loads into the simulation class on button click

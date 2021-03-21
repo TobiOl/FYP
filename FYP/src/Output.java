@@ -36,7 +36,8 @@ public class Output extends JFrame {
 		
 		textArea = new JTextArea(50, 10);
 		textArea.setEditable(false);
-		//runs the output stream and assigns it to the created textArea object. This will make the system output text print on the screen that opens
+		//runs the output stream and assigns it to the created textArea object. 
+		//This will make the system output text print on the screen that opens
 		PrintStream printStream = new PrintStream(new CustomOutputStream(textArea));
 		
 		//reference to standard output stream
