@@ -1,3 +1,6 @@
+import java.util.Random;
+
+
 import javax.swing.JFrame;  
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
@@ -8,25 +11,20 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;  
 import org.jfree.data.category.CategoryDataset;  
 import org.jfree.data.category.DefaultCategoryDataset;  
-
+import java.util.ArrayList;
+import java.util.Iterator;
 public class ResultVisualisation extends JFrame{
 	//visualisation of the data calculated in the Simulation class in form of a bar chart
 	//code gotten from https://www.javatpoint.com/jfreechart-bar-chart
 	  private static final long serialVersionUID = 1L;  
 	  
-	  //Each of these variables are created to populate the bar chart. Made on public so the Wards class can use them for its function
-	  public static int Week1;
-	  public static int Week2;
-	  public static int Week3;
-	  public static int Week4;
-	  public static int Week5;
-	  public static int Week6;
-	  public static int Week7;
-	  public static int Week8;
-	  public static int Week9;
-	  public static int Week10;
-	  public static int Week11;
-	  public static int Week12;
+	  
+	  
+	  private int LengthOfStay;
+	  
+	  static ArrayList<Integer> Weeks = new ArrayList<Integer>();
+
+	private int SplitHospitalised;
 	  
 	  
 	  public ResultVisualisation(String apptitle) {
@@ -48,33 +46,56 @@ public class ResultVisualisation extends JFrame{
 		  DefaultCategoryDataset WeeksDataset = new DefaultCategoryDataset(); 
 		  
 		  //Splits the total hospitalised into 12 to represent increase per week and then added to each other
-		  Week1 = (int) (Simulation.TotalHospitalised/12);
-		  Week2 = (int) (Week1*2);
-		  Week3 = (int) (Week2+Week1);
-		  Week4 = (int) (Week3+Week1);
-		  Week5 = (int) (Week4+Week1);
-		  Week6 = (int) (Week5+Week1);
-		  Week7 = (int) (Week6+Week1);
-		  Week8 = (int) (Week7+Week1);
-		  Week9 = (int) (Week8+Week1);
-		  Week10 = (int) (Week9+Week1);
-		  Week11 = (int) (Week10+Week1);
-		  Week12 = (int) (Week11+Week1);
+		  SplitHospitalised =  (int) (Simulation.TotalHospitalised/12);
+		  int counter = SplitHospitalised;
+		  
+
+
+		  //calculates the length of stay for 
+		  for (int i = 0; i < 12; i++) {
+			  int z = LengthOfStay();
+			  Weeks.add(z);
+		  }
+		  
+		  for (int y = 0; y < Weeks.size(); y++) {
+			  Weeks.set(0, SplitHospitalised);
+			if (Weeks.get(y)>=7) {
+				Weeks.set(y, counter+SplitHospitalised);
+				counter = counter + SplitHospitalised;
+			}
+			else {
+				Weeks.set(y, counter);
+			}
+		}
+		  
+		  	
+		  
+
 		  
 		//First parameter is the actual value of the data, second is the grouping of the data and third is the actual labelling. 
-		  WeeksDataset.addValue(Week1, "Weeks", "Week 1");
-		  WeeksDataset.addValue(Week2, "Weeks", "Week 2");
-		  WeeksDataset.addValue(Week3, "Weeks", "Week 3");
-		  WeeksDataset.addValue(Week4, "Weeks", "Week 4");
-		  WeeksDataset.addValue(Week5, "Weeks", "Week 5");
-		  WeeksDataset.addValue(Week6, "Weeks", "Week 6");
-		  WeeksDataset.addValue(Week7, "Weeks", "Week 7");
-		  WeeksDataset.addValue(Week8, "Weeks", "Week 8");
-		  WeeksDataset.addValue(Week9, "Weeks", "Week 9");
-		  WeeksDataset.addValue(Week10, "Weeks", "Week 10");
-		  WeeksDataset.addValue(Week11, "Weeks", "Week 11");
-		  WeeksDataset.addValue(Week12, "Weeks", "Week 12");
+		  WeeksDataset.addValue(Weeks.get(0), "Weeks", "Week 1");
+		  WeeksDataset.addValue(Weeks.get(1), "Weeks", "Week 2");
+		  WeeksDataset.addValue(Weeks.get(2), "Weeks", "Week 3");
+		  WeeksDataset.addValue(Weeks.get(3), "Weeks", "Week 4");
+		  WeeksDataset.addValue(Weeks.get(4), "Weeks", "Week 5");
+		  WeeksDataset.addValue(Weeks.get(5), "Weeks", "Week 6");
+		  WeeksDataset.addValue(Weeks.get(6), "Weeks", "Week 7");
+		  WeeksDataset.addValue(Weeks.get(7), "Weeks", "Week 8");
+		  WeeksDataset.addValue(Weeks.get(8), "Weeks", "Week 9");
+		  WeeksDataset.addValue(Weeks.get(9), "Weeks", "Week 10");
+		  WeeksDataset.addValue(Weeks.get(10), "Weeks", "Week 11");
+		  WeeksDataset.addValue(Weeks.get(11), "Weeks", "Week 12");
 		  return WeeksDataset;
+	  }
+	  
+	  //length of stay for each week randomly generated in terms of days
+	  //will calculate a random amount of days a patient needs to stay in hospital
+	  //per week and return this value
+	  private int LengthOfStay() {
+		  Random random = new Random();
+		  int lengthofstay = random.nextInt(15);
+		  return lengthofstay;
+		  
 	  }
 	  
 	  public static void main(String[] args) throws Exception{

@@ -11,40 +11,40 @@ public class Wards {
 		//runs if else statements checking if each of the weeks hospitalisation numbers will go over the total bed capacity
 		//if so, they return the statement to the Simulation class to be printed out
 
-		if (ResultVisualisation.Week1 > TotalBeds) {
+		if (ResultVisualisation.Weeks.get(0) > TotalBeds) {
 			return "Hospital capacity is filled up by Week 1";
 		}
-		else if (ResultVisualisation.Week2 > TotalBeds) {
+		else if (ResultVisualisation.Weeks.get(1) > TotalBeds) {
 			return "Hospital capacity is filled up by Week 2";
 		}
-else if (ResultVisualisation.Week3 > TotalBeds) {
+else if (ResultVisualisation.Weeks.get(2) > TotalBeds) {
 	return "Hospital capacity is filled up by Week 3";
 }
-else if (ResultVisualisation.Week4 > TotalBeds) {
+else if (ResultVisualisation.Weeks.get(3) > TotalBeds) {
 	return "Hospital capacity is filled up by Week 4";
 }
-else if (ResultVisualisation.Week5 > TotalBeds) {
+else if (ResultVisualisation.Weeks.get(4) > TotalBeds) {
 	return "Hospital capacity is filled up by Week 5";
 }
-else if (ResultVisualisation.Week6 > TotalBeds) {
+else if (ResultVisualisation.Weeks.get(5) > TotalBeds) {
 	return "Hospital capacity is filled up by Week 6";
 }
-else if (ResultVisualisation.Week7 > TotalBeds) {
+else if (ResultVisualisation.Weeks.get(6) > TotalBeds) {
 	return "Hospital capacity is filled up by Week 7";
 }
-else if (ResultVisualisation.Week8 > TotalBeds) {
+else if (ResultVisualisation.Weeks.get(7) > TotalBeds) {
 	return "Hospital capacity is filled up by Week 8";
 }
-else if (ResultVisualisation.Week9 > TotalBeds) {
+else if (ResultVisualisation.Weeks.get(8) > TotalBeds) {
 	return "Hospital capacity is filled up by Week 9";
 }
-else if (ResultVisualisation.Week10 > TotalBeds) {
+else if (ResultVisualisation.Weeks.get(9) > TotalBeds) {
 	return "Hospital capacity is filled up by Week 10";
 }
-else if (ResultVisualisation.Week11 > TotalBeds) {
+else if (ResultVisualisation.Weeks.get(10) > TotalBeds) {
 	return "Hospital capacity is filled up by Week 11";
 }
-else if (ResultVisualisation.Week12 > TotalBeds) {
+else if (ResultVisualisation.Weeks.get(11) > TotalBeds) {
 	return "Hospital capacity is filled up by Week 12";
 }
 else {
