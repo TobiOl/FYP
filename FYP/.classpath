@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/classes" path="src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/Tobi/.p2/pool/plugins/org.eclipse.osgi_3.13.300.v20190218-1622.jar" sourcepath="C:/Users/Tobi/.p2/pool/plugins/org.eclipse.osgi.source_3.13.300.v20190218-1622.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Tobi/.p2/pool/plugins/org.eclipse.core.commands_3.9.300.v20190215-1957.jar" sourcepath="C:/Users/Tobi/.p2/pool/plugins/org.eclipse.core.commands.source_3.9.300.v20190215-1957.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Tobi/.p2/pool/plugins/org.eclipse.equinox.common_3.10.300.v20190218-2100.jar" sourcepath="C:/Users/Tobi/.p2/pool/plugins/org.eclipse.equinox.common.source_3.10.300.v20190218-2100.jar"/>
@@ -25,5 +34,8 @@
 	<classpathentry kind="lib" path="C:/Users/Tobi/git/FYP/FYP/lib/jfreechart-1.0.19/lib/orsonpdf-1.6-eval.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Tobi/git/FYP/FYP/lib/jfreechart-1.0.19/lib/servlet.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Tobi/git/FYP/FYP/lib/jfreechart-1.0.19/lib/swtgraphics2d.jar"/>
-	<classpathentry kind="output" path="bin"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Mockito-Core"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Mockito-Junit"/>
+	<classpathentry kind="output" path="target/classes"/>
 </classpath>
