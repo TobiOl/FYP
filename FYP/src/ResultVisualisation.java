@@ -51,13 +51,19 @@ public class ResultVisualisation extends JFrame{
 		  
 
 
-		  //calculates the length of stay for 
+		  //calculates the length of stay and places them into an ArrayList
+		  //runs a for loop that looks at each of the values in the ArrayList
+		  //Then if its equal to or larger than than 7 (a week) it adds the value 
+		  //of SplitHospitalised to the previous week.
+		  //Otherwise, keeps the number as the same as previous week
 		  for (int i = 0; i < 12; i++) {
-			  int z = LengthOfStay();
-			  Weeks.add(z);
+			  int los = LengthOfStay();
+			  Weeks.add(los);
 		  }
 		  
 		  for (int y = 0; y < Weeks.size(); y++) {
+			  //done so that there is at least a starting point for the rest 
+			  //of the calculations to work with
 			  Weeks.set(0, SplitHospitalised);
 			if (Weeks.get(y)>=7) {
 				Weeks.set(y, counter+SplitHospitalised);
